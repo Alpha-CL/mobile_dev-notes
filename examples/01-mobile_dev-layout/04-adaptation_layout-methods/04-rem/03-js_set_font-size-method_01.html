@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scal=1,maximun-scal=1,user-scalable=no">
+
+    <style>
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+
+    .item {
+        float: left;
+        background: green;
+        width: 4rem;
+        height: 4rem;
+    }
+
+    </style>
+
+    <script>
+
+	/** method_01 **/
+
+	/**
+	 * 设置属性的 rem 注意事项           // 通常开发为 @1x 375*667      px 相对像素
+     *                                // 实际使用为 @2x 750x1334     实际物理像素，也为了图片清晰
+	 *
+	 *
+	 ** 需要关注设计图的 DPR( 若 DPR !== 1 )
+     ** 则需要处以 DPR 后在换算 rem
+	 */
+
+	(function () {
+
+		let html,
+			width;
+
+		html = document.documentElement;
+		width = document.documentElement.clientWidth;
+
+		// console.log(width);
+		// console.log(width / 16);
+
+		html.style.fontSize = `${width / 16}px`;
+
+	})();
+
+
+    </script>
+
+
+</head>
+<body>
+
+
+<div class="item">1</div>
+<div class="item">2</div>
+<div class="item">3</div>
+<div class="item">4</div>
+
+
+</body>
+</html>

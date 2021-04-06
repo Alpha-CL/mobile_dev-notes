@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+
+/**
+ * 删格化系统
+ *
+ *
+ * 将不同设备的宽度 以相同的列数 分割为 不同宽度的等份，再根据已知设计稿中元素的宽度，计算出该元素所占的列数，最后在不同的设备中展示:
+ ** 适配元素的宽度 = ( 元素宽度 / 基础手机的列宽 => 求出元素在基础中所占的列数比例 ) * 适配手机的列宽
+ *
+ *
+ ** 1) 元素适配的宽度
+ ** 2) 元素在设计稿中的宽度
+ ** 3) 列数
+ ** 4) 列宽
+ ** 5）元素实际宽度
+ */
+
+let basicPhoneWidth,            // 基础手机的宽度
+	adaptationPhoneWidth,       // 适配手机的宽度
+	curWidth,                   // 已知: 当前元素的宽度
+	tarWidth,                   // 未知: 求
+	curColWidth,                // 基础手机的列宽
+	tarColWidth,                // 适配手机的列宽
+	comColNum;                  // 公共删格列数
+
+basicPhoneWidth = 375;          // 基础手机的宽度
+adaptationPhoneWidth = 320;     // 适配手机的宽度
+
+curWidth = 100;                 // 基础手机元素的宽度
+comColNum = 10;                 // 相同分割的列数
+
+curColWidth = basicPhoneWidth / comColNum;                  // 基础手机的列宽
+tarColWidth = adaptationPhoneWidth / comColNum;             // 适配手机的列宽
+
+/** 适配元素的宽度 = ( 元素宽度 / 基础手机的列宽 ) * 适配手机的列宽 **/
+tarColWidth = (curWidth / curColWidth) * tarColWidth;
+
+console.log(tarColWidth);
+
+/** 设置根节点的 font-size: 单个实际列宽 **/
+// html {
+// 	font-size: curColWidth;
+// }
+
+
+</script>
+
+
+</body>
+</html>

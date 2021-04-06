@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scal=1,maximun-scal=1,user-scalable=no">
+
+    <style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    .item {
+        float: left;
+        background: green;
+        border: .5px solid red;
+
+        /* 375/4 = 93.75 px */
+        /* 93.75/16 = 5.859375 rem */
+        /*width: 5.859375rem;*/
+        /*height: 5.859375rem;*/
+
+        /* 750/4 = 187.5 */
+        /* 187.5/100 = 1.875*/
+        width: 1.875rem;
+        height: 1.875rem;
+    }
+
+    </style>
+
+    <script>
+
+	/** method_02 **/
+
+	/**
+	 * 设置属性的 rem 注意事项           // 通常开发为 @1x 375*667      px 相对像素
+	 *                                // 实际使用为 @2x 750x1334     实际物理像素，也为了图片清晰
+	 *
+	 *
+	 ** 需要关注设计图的 DPR( 若 DPR !== 1 )
+	 ** 则需要处以 DPR 后在换算 rem
+	 */
+
+	(function (doc, win, desWidth) {
+
+		let html,
+			clientWidth;
+
+		html = document.documentElement;
+
+		const refreshRem = () => {
+
+			clientWidth = html.clientWidth;
+
+			if (clientWidth >= desWidth) {
+
+				html.style.fontSize = '100px';
+
+			} else {
+
+				/** 以 @1x 图设计，@2x 开发，需处理 DPR 后，再换算 rem **/
+				// html.style.fontSize = `${16 * clientWidth / 375}px`;
+
+				//    a * b / c
+				// => b / a * c
+				// => b /(a / c)
+				//
+				//
+				// num / scale = xxx                // 以 iphone6 为基准
+				//                                  // iphone6 DPR=2 为人眼识别的基准
+				//                                  // iphone6 使用人数较多，并作为上下适配较为合适
+				//
+				// 320 / ( 320 / 16 ) = 13.653      // iphone 5
+				// 375 / ( 375 / 16 ) = 16          // iphone 6
+				// 414 / ( 375 / 16 ) = 17.664      // iphone 6P
+				//
+				//
+				// 320 / 16 = 20
+				// 375 / 16 = 23.4375
+				// 414 / 16 = 26.5
+
+				/** 以 @2x 图开发，无需处理 DPR，直接换算 rem **/
+				html.style.fontSize = `${100 * (clientWidth / desWidth)}px`;
+
+				console.log(html.style.fontSize);
+			}
+		};
+
+		doc.addEventListener('DOMContentLoaded', refreshRem);
+
+	})(document, window, 750);
+
+
+    </script>
+
+</head>
+<body>
+
+
+<div class="item">1</div>
+<div class="item">2</div>
+<div class="item">3</div>
+<div class="item">4</div>
+
+
+</body>
+</html>

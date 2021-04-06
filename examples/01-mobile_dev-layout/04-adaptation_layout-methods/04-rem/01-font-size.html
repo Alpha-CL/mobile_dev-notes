@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <style>
+
+    * {
+        margin: 0;
+        padding: 20px;
+    }
+
+    .demo-em {
+        font-size: 30px;                    /* font-size 在祖先元素中设置时 */
+        width: 10em;
+        height: 10em;
+
+        /* 以下属性仅做展示调整 */
+        border: 1px solid;
+        text-align: center;
+        line-height: 4em;
+    }
+
+    .demo-em p {
+        font-size: 2em;                     /* 基于 祖先元素中的 font-size 作为基础的倍数 */
+    }
+
+
+    html {                                  /* html( root ) 根节点 */
+        font-size: 20px;                    /* 动态基于当前视口宽度的比例，设置根节点字体的大小，从而达到适配 */
+    }
+
+    .demo-rem {
+        border: 1px solid;
+        width: 10rem;
+        height: 10rem;
+    }
+
+    .demo-rem p {
+        font-size: 2rem;                    /* rem 基于 html( root ) 根节点的字体大小为基础 */
+
+        text-align: center;
+        line-height: 5rem;
+    }
+
+
+    </style>
+
+
+    <script>
+
+
+    </script>
+
+</head>
+<body>
+
+
+<h2>demo-em</h2>
+
+<div class="demo-em">
+    <p>
+        hello world
+    </p>
+</div>
+
+<br/>
+
+<h2>demo-rem</h2>
+
+<div class="demo-rem">
+    <p>
+        just do it
+    </p>
+</div>
+
+
+<script>
+
+
+/**
+ * font-size
+ *
+ *
+ ** 在祖先元素设置时，代表祖先素字体的大小，可继承
+ ** 在当前元素设置时，代表该元素的字体大小，可继承
+ */
+
+
+/**
+ * em
+ *
+ **  Ancestor { font-size: num px; } => Posterity { 1em = num px; }
+ *
+ *
+ ** 问题: 1) chrome 默认最小字体 12px
+ **      2) 若两个一样的元素，但里面字体不同，则无法统一设置
+ **         或 元素字体不同，则需重新设置
+ */
+
+
+/**
+ * rem              // CSS3 新增的相对单位，相对于根元素字体大小
+ *
+ *
+ ** html { font-size: num px; } => Posterity { 1rem = num px; }
+ *
+ * 相对于 root( 根元素 ) 的单位
+ */
+
+/** "em & rem"( 相对单位 ) 最终都会转换为 绝对单位 **/
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scal=1,maximun-scal=1,user-scalable=no">
+
+    <style>
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .demo {
+        width: 375px;
+    }
+
+    </style>
+
+    <script>
+
+	(function () {
+
+		let meta,
+            scale;
+
+		meta = document.querySelector('meta[name="viewport"]');
+		scale = 1 / window.devicePixelRatio;
+
+		if (!meta) {
+
+			meta = document.createElement('meta');
+			meta.name = 'viewport';
+			meta.content = `width=device-width,initial-scale=${scale},minimum-scal=${scale},maximun-scal=${scale},user-scalable=no`;
+
+			document.head.appendChild(meta);
+
+		} else {
+
+			meta.setAttribute('content', `width=device-width,initial-scale=${scale},minimum-scal=${scale},maximun-scal=${scale},user-scalable=no`);
+		}
+
+	})();
+
+    </script>
+
+</head>
+<body>
+
+
+<img class="demo" src="http://s13.sinaimg.cn/mw690/001msFiwgy6M4fR3STq9c&690" alt="">
+
+
+<script>
+
+
+/**
+ * dpr 缩放适配             // 根绝 dpr 的值，将视口缩放至物理像素
+ *
+ *
+ * 将 CSS 像素值设置为物理像素，让所有设备都变为CSS像素对应一个设备像素
+ */
+
+
+</script>
+
+
+</body>
+</html>

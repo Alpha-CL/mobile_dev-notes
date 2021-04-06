@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <meta id="view" name="viewport" content="width=device-width,initial-scale=1,minimum-scal=1,maximun-scal=1,user-scalable=no"/>
+
+    <style>
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .demo {
+        width: 375px;
+    }
+
+    </style>
+
+    <script>
+
+	(function () {
+
+		let curWidth,                   // 当前设备宽度
+			tarWidth,                   // 固定开发宽度
+			scale,
+			meta;
+
+		/** 获取当前十口宽度的方法 **/
+		curWidth = document.documentElement.clientWidth;
+		curWidth = window.innerWidth;
+		curWidth = window.screen.width;
+
+		console.log('curWidth: ', curWidth);
+
+		tarWidth = 375;
+		scale = curWidth / tarWidth;
+
+		console.log('scale: ', scale);
+
+		meta = document.getElementById('view');
+
+		/** 需要去除 width=device-width( 固定视口宽度 )，因为要改变视口宽度
+		 *  需要把 initial & minimum  &maximun 都设置，因浏览器默认会将图像显示完整 **/
+		meta.content = `initial-scale=${scale},minimum-scal=${scale},maximun-scal=${scale},user-scalable=no`;
+
+	})();
+
+    </script>
+
+</head>
+<body>
+
+
+<img class="demo" src="http://s13.sinaimg.cn/mw690/001msFiwgy6M4fR3STq9c&690" alt="">
+
+
+<script>
+
+/**
+ * viewport 缩放适配                // 设置基础开发设备宽度，以视口和当前基础宽度，计算出目标设备宽度的比例
+ *
+ *
+ * 1) viewport 需要通过 js 动态设置( 不能直接把 device 的值设置为 固定数值 )
+ * 2) 通过设置比例动态达到适配的效果( 初始开发宽度/当前视口宽度 = 比例 )
+ *
+ *
+ ** 缺点: 1) 设备比例可能会是小数，会造成部分元素的宽素不精准
+ **      2) 若以小设备为基础设备，放大则有可能会造成图片清晰度不够
+ */
+
+
+</script>
+
+</body>
+</html>
