@@ -1,0 +1,190 @@
+@charset "UTF-8";
+/*********************************************************************************************************************/
+/** index **/
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/*********************************************************************************************************************/
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/** font-size **/
+@import "normalize.css";
+html {
+  font-size: 9.2592592593vw;
+}
+
+/** 当页面到底 750 宽度时，根节点字体大小应固定为最大宽度时候的字体大小 [num]px **/
+@media screen and (min-width: 750px) {
+  html {
+    font-size: calc(9.2592592593 * (750px / 100));
+  }
+}
+/** font-basic-size **/
+body {
+  font-size: 12px;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/*********************************************************************************************************************/
+/*********************************************************************************************************************/
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.clearfix:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+/* *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *   *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  * */
+.float {
+  float: left;
+}
+
+/* *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *   *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  * */
+.vertical {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+/*********************************************************************************************************************/
+/*********************************************************************************************************************/
+/** home page **/
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+#header {
+  padding: 0 12px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  height: calc(176px / 3);
+  background-color: #46ae00;
+}
+#header .hd-l a {
+  display: inline-block;
+}
+#header .hd-l a img {
+  width: calc(517px / 4);
+}
+#header .hd-r a {
+  display: inline-block;
+  height: calc(176px / 3);
+}
+#header .hd-r a:nth-child(1) {
+  margin-right: 0.4rem;
+  width: calc(80px / 3);
+  background: url("../images/ico_01.png") no-repeat center;
+  background-size: 100%;
+}
+#header .hd-r a:nth-child(2) {
+  width: calc(85px / 3);
+  background: url("../images/ico_02.png") no-repeat center;
+  background-size: 100%;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+#scroll {
+  position: absolute;
+  overflow: auto;
+  top: calc(176px/ 3);
+  bottom: 60px;
+  max-width: 750px;
+  -webkit-overflow-scrolling: touch;
+}
+#scroll #banner {
+  position: relative;
+  height: 5.4rem;
+}
+#scroll #banner .moveWrap img {
+  width: 100%;
+}
+#scroll #banner .control {
+  position: absolute;
+  bottom: 0.34rem;
+  font-size: 0;
+  width: 100%;
+  text-align: center;
+}
+#scroll #banner .control .dot {
+  display: inline-block;
+  width: 0.24rem;
+  height: 0.24rem;
+  background-color: #ddd;
+  border-radius: 50%;
+}
+#scroll #banner .control .dot.dot-active {
+  background-color: #46ae00;
+}
+#scroll #banner .control .dot:not(last-child) {
+  margin-right: 0.2rem;
+}
+#scroll #nav {
+  padding: 0.4rem 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+#scroll #nav a {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  color: #333333;
+}
+#scroll #nav a img {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-bottom: 0.2rem;
+}
+#scroll #ad a img {
+  width: 100%;
+}
+#scroll .item {
+  padding: 0.2rem;
+  display: flex;
+  flex-flow: row nowrap;
+  box-sizing: border-box;
+  justify-content: space-between;
+  background-color: #f5f5f5;
+}
+#scroll .item:nth-child(2) {
+  padding-top: 0;
+}
+#scroll .item .item-row a img {
+  width: 4.5rem;
+  height: 6.4rem;
+}
+#scroll .item .item-col {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+#scroll .item .item-col a img {
+  width: 5.7rem;
+  height: 3.1rem;
+}
+#scroll .item-2 {
+  padding-top: 0;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  max-width: 750px;
+  margin-top: 0.2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fff;
+  height: 60px;
+  box-shadow: 1 -0.06rem -0.06rem #dcdcdc;
+}
+#footer a img {
+  width: calc(160px / 3);
+}
+
+/*********************************************************************************************************************/
+/*********************************************************************************************************************/
+
+/*# sourceMappingURL=index.css.map */

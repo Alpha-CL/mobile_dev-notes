@@ -14,7 +14,6 @@
         box-sizing: border-box;
     }
 
-
     .item {
         float: left;
         background: green;
@@ -53,8 +52,10 @@
 
 		html = document.documentElement;
 
-		const refreshRem = () => {
+		/** ios 不支持 箭头函数 **/
+		function refreshRem() {
 
+			// clientWidth = html.getBoundingClientRect();
 			clientWidth = html.clientWidth;
 
 			if (clientWidth >= desWidth) {

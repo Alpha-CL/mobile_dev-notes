@@ -1,0 +1,31 @@
+/*********************************************************************************************************************/
+/** home page **/
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+#header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  height: calc(176px / 3);
+  background-color: #46ae00;
+}
+#header .hd-l a {
+  display: inline-block;
+}
+#header .hd-l a img {
+  width: calc(517px / 3);
+}
+#header .hd-r a:nth-child(1) {
+  width: calc(80px/3);
+  background: url("../images/ico_01.png") no-repeat center;
+  background-size: 100%;
+}
+#header .hd-r a:nth-child(2) {
+  width: calc(85px/3);
+  background: url("../images/ico_02.png") no-repeat center;
+  background-size: 100%;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/*********************************************************************************************************************/
+
+/*# sourceMappingURL=homepage.css.map */

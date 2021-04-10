@@ -1,0 +1,23 @@
+@import "px2rem.scss";
+
+
+/** 设计图的尺寸 **/
+$designWidth: 750;
+
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+.item {
+  float: left;
+  width: px2rem(187.5);
+  height: px2rem(200);
+  background-color: green;
+}
+
+
+
+

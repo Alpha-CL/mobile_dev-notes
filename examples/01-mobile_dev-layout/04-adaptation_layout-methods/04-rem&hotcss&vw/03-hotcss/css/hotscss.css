@@ -1,0 +1,15 @@
+@charset "UTF-8";
+/** 设计图的尺寸 **/
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  float: left;
+  width: 4rem;
+  height: 4.2666666667rem;
+  background-color: green;
+}
+
+/*# sourceMappingURL=hotscss.css.map */

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .clear:after {
+        display: block;
+        content: "";
+        clear: both;
+    }
+
+    .demo_01 {
+        width: 40vw;
+        height: 40vw;
+        background: red;
+    }
+
+    .demo_02 .item {
+        float: left;
+        /* 375/4=93.75 && 1vw=3.75 => 93.75/3.75=25 */
+        width: 25vw;
+        height: 25vw;
+        background: #525252;
+    }
+
+    .demo_03 img {
+        width: 100vw;
+        height: 200px;
+        overflow: hidden;
+    }
+
+
+    </style>
+
+    <link rel="stylesheet" href="css/vw.css">
+
+    <!-- 利用 "vw & fontSize 的比例" 设置 html.fontSize -->
+    <!--<script>
+
+	(function (doc, win, desWidth) {
+
+		let html,
+			clientWidth;
+
+		html = document.documentElement;
+
+		/** ios 不支持 箭头函数 **/
+		function refreshRem() {
+
+			clientWidth = html.clientWidth;
+
+			if (clientWidth >= desWidth) {
+
+				html.style.fontSize = '100px';
+
+			} else {
+
+				/** rem 适配方案 **/
+				// html.style.fontSize = `${16 * clientWidth / 375}px`;
+
+				/**
+				 * vw&vh 适配方案
+				 *
+				 *
+				 ** 浏览器天生支持 "vw & vh"，无需写入该函数
+				 */
+				html.style.fontSize = `${100 * (clientWidth / desWidth)}px`;
+			}
+		};
+
+		doc.addEventListener('DOMContentLoaded', refreshRem);
+
+	})(document, window, 750);
+
+    </script>-->
+
+<!--    <script src="js/hotcss.js"></script>-->
+
+</head>
+<body>
+
+
+<section class="demo_01"></section>
+
+<br/>
+
+<section class="demo_02 clear">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+</section>
+
+<br/>
+
+<section class="demo_03">
+    <img src="./imgs/750.jpeg" alt="">
+</section>
+
+<br/>
+
+<section class="demo_04 clear">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+</section>
+
+<br/>
+
+<!--<section class="demo_05">-->
+<!--    <div class="item">1</div>-->
+<!--    <div class="item">2</div>-->
+<!--    <div class="item">3</div>-->
+<!--    <div class="item">4</div>-->
+<!--</section>-->
+
+
+<script>
+
+
+/**
+ * vw & vh                  //  为适配而生
+ *
+ *
+ * 支持情况:
+ *      >= ios 8
+ *      >= android 4.4
+ *
+ ** viewpor'ts width        // 1vw === viewportWdith * 0.01
+ ** viewport's height       // 1vh === viewportHeight * 0.01
+ *
+ *
+ */
+
+/**
+ ** usage methods
+ *
+ *
+ *      * 01: 通篇使用 vw，直接使用
+ *
+ *          - 通常使用 vw 作为相对换算单位，height 一般使用 px 定高
+ *
+ **     * 02: 通过 vw 设置根节点字体大小           // 推荐使用
+ **           页面里的尺寸依然使用 rem
+ *
+ *            // 以750*1334 为例 clientWidth: 375, designWidth: 750, dpr: 2
+ *
+ *            1) 确定设计稿尺寸
+ *
+ *                  -> 设计稿尺寸 designWidth: 750
+ *
+ *                  -> 设计稿中 1vw = clientWidth/100 =>  3.75
+ *
+ *            2) 根据设计稿尺寸计算出 root.fontSize = 100 * (clientWidth / designWidth) => 50
+ *
+ *            3) 再根据 fontSize / 1vw = 13.333333333333334
+ *
+ *            => 1rem = 13.333333333333334 vw
+ *
+ **           => 设置 rem 与之前相同，设计稿实际尺寸 / 100 即可
+ */
+
+/**
+ * vh 适配计算推倒过程
+ *
+ *
+ * 750/2/3.75 = 100;
+ *
+ *  => 750/(2*3.75)
+ *  => 750/(7.5)
+ *  => 750/(750/100)
+ *  => 750/750*100
+ *
+ * 100 * ( clientWidht / designWidth )
+ */
+
+
+</script>
+
+
+</body>
+</html>

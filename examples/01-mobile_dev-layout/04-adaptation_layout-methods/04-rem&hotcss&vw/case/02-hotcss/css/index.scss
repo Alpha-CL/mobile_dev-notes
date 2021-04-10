@@ -1,0 +1,332 @@
+/*********************************************************************************************************************/
+
+
+@import "px2rem.scss";
+
+/** 设计图的尺寸 **/
+$designWidth: 750;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+/** common **/
+
+body {
+    font-family: helvetica;
+    margin: 0 auto;
+
+    /* max-width: 750px; */
+}
+
+@media screen and (min-width: 1500px) {
+    body {
+        width: 1500px;
+    }
+}
+
+body {
+    background-color: #f2f0f0;
+}
+
+.clearfix:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+/** #hd **/
+
+#hd {
+    padding: 0 16px;
+    display: flex;
+    flex-flow: row nowrap;
+    /*justify-content: space-between;*/
+    align-items: center;
+    font-size: 28px;
+    height: 100px;
+    line-height: 100px;
+    background-color: #d22147;
+}
+
+#hd .hd-l a,
+#hd .hd-r a {
+    color: #fff;
+}
+
+#hd .hd-l a::after {
+    content: "";
+    display: inline-block;
+    width: 25px;
+    height: 14px;
+    background: url("../images/ico_01.png") no-repeat center;
+    background-size: cover;
+    margin-left: 8px;
+}
+
+#hd .hd-l,
+#hd .hd-r {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 160px;
+    line-height: 100px;
+}
+
+#hd .hd-con {
+    flex: 1;
+}
+
+#hd .hd-con input {
+    height: 64px;
+    width: 100%;
+    text-indent: 64px;
+    border: none;
+    border-radius: 16px;
+    color: #fff;
+    font-size: 28px;
+    background: #ae3e56 url("../images/ico_02.png") no-repeat 20px 18px;
+    background-size: 32px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+#hd .hd-con input::-webkit-input-placeholder { /* WebKit browsers */
+    color: #e2c2c9;
+}
+
+#hd .hd-r a::before {
+    content: "";
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    background: url("../images/ico_03.png") no-repeat 2px 2px;
+    background-size: cover;
+    margin-right: 8px;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+/** #banner **/
+
+#banner a {
+    display: block;
+    width: 100%;
+    height: 260px;
+}
+
+#banner a img {
+    width: 100%;
+    /*width: 7.5rem;*/
+    height: 100%;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+/** #nav **/
+
+#nav ul {
+    font-size: 0;
+    padding: px2rem(20) 0;
+}
+
+#nav li {
+    width: 25%;
+    display: inline-block;
+    text-align: center;
+    margin: px2rem(20) 0;
+}
+
+#nav li a {
+    font-size: px2rem(28);
+    color: #525252;
+}
+
+#nav li img {
+    display: block;
+    width: px2rem(75);
+    height: px2rem(75);
+    margin: 0 auto px2rem(20);
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+/** #ad1 **/
+
+#ad1 a {
+    float: left;
+    display: block;
+    width: px2rem(250);
+    height: px2rem(250);
+}
+
+#ad1 a img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+/** #ad2 **/
+
+#ad2 {
+    padding: px2rem(30) 0;
+}
+
+#ad2 a img {
+    width: 100%;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+/** #list **/
+
+#list {
+
+}
+
+#list {
+    background-color: #fff;
+}
+
+#list .headline h3 {
+    font-size: px2rem(32);
+    line-height: px2rem(80);
+    color: #131313;
+    font-weight: normal;
+    padding-left: px2rem(20);
+}
+
+.headline h3::before {
+    margin-right: px2rem(8);
+    content: '';
+    display: inline-block;
+    width: px2rem(8);
+    height: px2rem(32);
+    background-color: #cc0530;
+    border-radius: px2rem(5);
+}
+
+.headline h3 span,
+.headline h3::before {
+    vertical-align: middle;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+    #list .headline h3::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        border-bottom: 1px solid #c1c0c5;
+        color: #c1c0c5;
+        transform-origin: 0 0;
+        transform: scaleY(.5);
+    }
+}
+
+#list article {
+    border-bottom: 1px solid #c1c0c5;
+}
+
+#list article a {
+    padding: px2rem(20);
+    display: flex;
+}
+
+#list article .img {
+    flex: 0 0 auto;
+    padding-right: px2rem(20);
+}
+
+#list article .img img {
+    width: px2rem(214);
+    height: px2rem(194);
+}
+
+#list article .info {
+    flex: 2 2 auto;
+}
+
+#list article .info h4 {
+    font-size: px2rem(28);
+    color: #181818;
+    line-height: px2rem(61);
+    margin-bottom: px2rem(5);
+}
+
+#list article .info p {
+    font-size: px2rem(24);
+    color: #979797;
+    line-height: px2rem(36);
+    margin-bottom: px2rem(19);
+
+    display: -webkit-box; /* display: flex; */
+    -webkit-box-orient: vertical; /* align-items: center; */
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+#list article .info div {
+    font-size: px2rem(24);
+    height: px2rem(34);
+    line-height: px2rem(34);
+    color: #525252;
+}
+
+#list .info div strong {
+    color: #cc0530;
+    margin: 0 0 px2rem(9);
+}
+
+#list .info .discount {
+    display: inline-block;
+    width: px2rem(84);
+    height: px2rem(33);
+    color: #fff;
+    padding-left: px2rem(15);
+    margin-left: px2rem(15);
+    box-sizing: border-box;
+
+    background: url("../images/ico_04.gif") no-repeat;
+    background-size: cover;
+}
+
+#list .info .red {
+    float: right;
+    background: url("../images/ico_05.png") no-repeat left px2rem(3);
+    background-size: px2rem(24) px2rem(22);
+    padding-left: px2rem(28);
+}
+
+
+/*********************************************************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+

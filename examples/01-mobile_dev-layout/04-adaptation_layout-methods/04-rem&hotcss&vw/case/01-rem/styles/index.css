@@ -1,0 +1,302 @@
+/*********************************************************************************************************************/
+
+
+/** common **/
+
+body {
+    background-color: #f2f0f0;
+}
+
+.clearfix:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+/** #hd **/
+
+#hd {
+    padding: 0 8px;
+    display: flex;
+    flex-flow: row nowrap;
+    /*justify-content: space-between;*/
+    align-items: center;
+    font-size: 14px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #d22147;
+}
+
+#hd .hd-l a,
+#hd .hd-r a {
+    color: #fff;
+}
+
+#hd .hd-l a::after {
+    content: "";
+    display: inline-block;
+    width: 12.5px;
+    height: 7px;
+    background: url("../images/ico_01.png") no-repeat center;
+    background-size: cover;
+    margin-left: 4px;
+}
+
+#hd .hd-l,
+#hd .hd-r {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 80px;
+    line-height: 50px;
+}
+
+#hd .hd-con {
+    flex: 1;
+}
+
+#hd .hd-con input {
+    height: 32px;
+    width: 100%;
+    text-indent: 32px;
+    border: none;
+    border-radius: 8px;
+    color: #e2c2c9;
+    background: #ae3e56 url("../images/ico_02.png") no-repeat 10px 9px;
+    background-size: 16px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+#hd .hd-r a::before {
+    content: "";
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    background: url("../images/ico_03.png") no-repeat 1px 1px;
+    background-size: cover;
+    margin-right: 4px;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+/** #banner **/
+
+#banner a {
+    display: block;
+    width: 100%;
+    height: 130px;
+}
+
+#banner a img {
+    width: 100%;
+    /*width: 7.5rem;*/
+    height: 100%;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+/** #nav **/
+
+#nav ul {
+    font-size: 0;
+    padding: .2rem 0;
+}
+
+#nav li {
+    width: 25%;
+    display: inline-block;
+    text-align: center;
+    margin: .2rem 0;
+}
+
+#nav li a {
+    font-size: .28rem;
+    color: #525252;
+}
+
+#nav li img {
+    display: block;
+    width: .75rem;
+    height: .75rem;
+    margin: 0 auto .2rem;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+/** #ad1 **/
+
+#ad1 a {
+    float: left;
+    display: block;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+#ad1 a img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+/** #ad2 **/
+
+#ad2 {
+    padding: .3rem 0;
+}
+
+#ad2 a img {
+    width: 100%;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+/** #list **/
+
+#list {
+
+}
+
+#list {
+    background-color: #fff;
+}
+
+#list .headline h3 {
+    font-size: .32rem;
+    line-height: .8rem;
+    color: #131313;
+    font-weight: normal;
+    padding-left: .2rem;
+}
+
+.headline h3::before {
+    margin-right: .08rem;
+    content: '';
+    display: inline-block;
+    width: .08rem;
+    height: .32rem;
+    background-color: #cc0530;
+    border-radius: .05rem;
+}
+
+.headline h3 span,
+.headline h3::before {
+    vertical-align: middle;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+    #list .headline h3::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        border-bottom: 1px solid #c1c0c5;
+        color: #c1c0c5;
+        transform-origin: 0 0;
+        transform: scaleY(.5);
+    }
+}
+
+#list article {
+    border-bottom: 1px solid #c1c0c5;
+}
+
+#list article a {
+    padding: .2rem;
+    display: flex;
+}
+
+#list article .img {
+    flex: 0 0 auto;
+    padding-right: .2rem;
+}
+
+#list article .img img {
+    width: 2.14rem;
+    height: 1.94rem;
+}
+
+#list article .info {
+    flex: 2 2 auto;
+}
+
+#list article .info h4 {
+    font-size: .28rem;
+    color: #181818;
+    line-height: .61rem;
+    margin-bottom: .05rem;
+}
+
+#list article .info p {
+    font-size: .24rem;
+    color: #979797;
+    line-height: .36rem;
+    margin-bottom: .19rem;
+
+    display: -webkit-box;                   /* display: flex; */
+    -webkit-box-orient: vertical;           /* align-items: center; */
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+
+#list article .info div {
+    font-size: .24rem;
+    height: .34rem;
+    line-height: .34rem;
+    color: #525252;
+}
+
+#list .info div strong {
+    color: #cc0530;
+    margin: 0 0 .9rem;
+}
+
+#list .info .discount {
+    display: inline-block;
+    width: .84rem;
+    height: .33rem;
+    color: #fff;
+    padding-left: .15rem;
+    margin-left: .15rem;
+    box-sizing: border-box;
+
+    background: url("../images/ico_04.gif") no-repeat;
+    background-size: cover;
+}
+
+#list .info .red {
+    float: right;
+    background: url("../images/ico_05.png") no-repeat left .03rem;
+    background-size: .24rem .22rem;
+    padding-left: .28rem;
+}
+
+
+/*********************************************************************************************************************/
+
+
+
+
+
+
+
+

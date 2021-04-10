@@ -1,0 +1,207 @@
+/*********************************************************************************************************************/
+
+
+/** home page **/
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+#header {
+
+    padding: 0 12px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    height: calc(176px / 3);
+    background-color: #46ae00;
+
+    .hd-l a {
+
+        display: inline-block;
+
+        img {
+            width: calc(517px / 4);
+        }
+    }
+
+    .hd-r {
+
+        a {
+            display: inline-block;
+            height: calc(176px / 3);
+
+            &:nth-child(1) {
+                margin-right: .4rem;
+                width: calc(80px / 3);
+                background: url("../images/ico_01.png") no-repeat center;
+                background-size: 100%;
+            }
+
+            &:nth-child(2) {
+                width: calc(85px / 3);
+                background: url("../images/ico_02.png") no-repeat center;
+                background-size: 100%;
+            }
+        }
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+#banner {
+
+    position: relative;
+    height: 5.4rem;
+
+    .moveWrap {
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .control {
+
+        position: absolute;
+        bottom: .34rem;
+        font-size: 0;
+        width: 100%;
+        text-align: center;
+
+        .dot {
+
+            display: inline-block;
+            width: .24rem;
+            height: .24rem;
+            background-color: #ddd;
+            border-radius: 50%;
+
+            &.dot-active {
+                background-color: #46ae00;
+            }
+
+            &:not(last-child) {
+                margin-right: .2rem;
+            }
+        }
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+#nav {
+
+    padding: .4rem 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+
+    a {
+
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        color: #333333;
+
+        img {
+            width: 1.6rem;
+            height: 1.6rem;
+            margin-bottom: .2rem;
+        }
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+#ad {
+
+    a img {
+        width: 100%;
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+.item {
+
+    padding: .2rem;
+    display: flex;
+    flex-flow: row nowrap;
+    box-sizing: border-box;
+    justify-content: space-between;
+    background-color: #f5f5f5;
+
+    &:nth-child(2) {
+        padding-top: 0;
+    }
+
+    .item-row {
+
+        a img {
+
+            width: 4.5rem;
+            height: 6.4rem;
+        }
+    }
+
+    .item-col {
+
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+
+        a img {
+            width: 5.7rem;
+            height: 3.1rem;
+        }
+
+        a:nth-child(1) img {
+
+        }
+
+        a:nth-child(2) img {
+
+        }
+    }
+}
+
+.item-2 {
+    padding-top: 0;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+#footer {
+
+    margin-top: .2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fff;
+    height: 60px;
+    box-shadow: 1 -.06rem -.06rem #dcdcdc;
+
+    a img {
+        width: calc(160px / 3);
+    }
+}
+
+
+/*********************************************************************************************************************/
