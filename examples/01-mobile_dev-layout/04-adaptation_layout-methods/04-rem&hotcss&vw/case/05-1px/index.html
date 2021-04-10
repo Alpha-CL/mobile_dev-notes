@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+
+    .demo  {
+        margin-top: 100px;
+        padding: 40px;
+        line-height: 100px;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 40px;
+        text-align: center;
+
+        position: relative;
+        border-top: 1px solid #000;
+        /*border-bottom: 1px solid #000;*/
+    }
+
+    .demo:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        border-bottom: 1px solid #000;
+        transform-origin: 0 0;
+        transform: scaleY(0.5);
+    }
+
+
+    .demo_02 {
+        width: 100%;
+        height: 200px;
+        line-height: 100px;
+        font-size: 40px;
+        text-align: center;
+
+        position: relative;
+    }
+
+    .demo_02:after{
+        position: absolute;
+        content: "";
+        left: 0;
+        top: 0;
+        border: 1px solid  #000;
+        box-sizing: border-box;
+        width: 200%;
+        height: 100%;
+        transform-origin: 0 0;
+        transform: scale(0.5);
+    }
+
+    </style>
+
+</head>
+<body>
+
+
+<div class="demo">
+    problem: 1px
+</div>
+
+<br/>
+<br/>
+<br/>
+
+<div class="demo_02">
+    1px border
+</div>
+
+
+
+
+</body>
+</html>
