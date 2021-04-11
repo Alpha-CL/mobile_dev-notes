@@ -1,0 +1,30 @@
+@charset "UTF-8";
+/*********************************************************************************************************************/
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/**
+ * @import url() [condition]; 引入必备条件
+ *
+ *
+ * 1) 引入的样式必修放在css文件顶部
+ * 2) style 的样式不能设置宽
+ */
+@import url("200.css") (min-width: 200px);
+@import url("400.css") (min-width: 400px);
+@import url("600.css") (min-width: 600px);
+@import url("800.css") (min-width: 800px);
+@import url("1000.css") (min-width: 1000px);
+.item {
+  height: 100px;
+  background-color: green;
+  float: left;
+  border: 1px solid #000;
+  line-height: 100px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 40px;
+  color: #fff;
+}
+
+/*********************************************************************************************************************/
+
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+    /* 屏幕尺寸 */
+    @media (min-width: 500px) {
+        .demo {
+            background-color: green;
+        }
+    }
+
+    /* 屏幕尺寸 */
+    @media (max-height: 500px) {
+        .demo {
+            background-color: red;
+        }
+    }
+
+    /* 屏幕方向: 横 */
+    @media (orientation: landscape) {
+        .demo {
+            width: 667px;
+            height: 375px;
+        }
+    }
+
+    /* 屏幕方向: 纵 */
+    @media (orientation: portrait) {
+        .demo {
+            width: 375px;
+            height: 667px;
+        }
+    }
+
+    /* 屏幕比例 */
+    @media (aspect-ratio: 4/3) {
+        .demo {
+            border: 1px solid #000;
+        }
+
+    }
+
+    /* DPR */
+    @media (-webkit-device-pixel-ratio: 2) {
+        .demo {
+            content: 'dpr: 2';
+            font-size: 40px;
+        }
+    }
+
+    </style>
+
+</head>
+<body>
+
+
+<div class="demo"></div>
+
+
+</body>
+</html>

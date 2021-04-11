@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+    /* 所有设备，宽度必须大于750px，横屏 三个条件同时满足时，则条件成立 */
+    @media (min-width: 750px) and (orientation: landscape) {
+        .demo {
+            background-color: green;
+        }
+    }
+
+    /* 屏幕宽度小于1334px，横屏 两个条件满足其一，则条件成立 */
+    @media (max-height: 1334px), (orientation: landscape) {
+        .demo {
+            background-color: pink;
+        }
+    }
+
+    /* 屏幕尺寸大于 1000px时，则条件成立 */
+    /* not 无法单独使用，not 之后必须跟随 复合语句 */
+    @media not all and (max-width: 1000px) {
+        .demo {
+            background-color: blue;
+        }
+    }
+
+    /* 彩色屏幕，宽度大于1000px，两个条件同时满足时，则条件成立 */
+    @media only screen and (min-width: 100px) {
+        .demo {
+            background-color: gray;
+        }
+    }
+
+    </style>
+
+</head>
+<body>
+
+<div class="demo"></div>
+
+</body>
+</html>
