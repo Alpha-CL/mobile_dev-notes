@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="../../../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../../node_modules/bootstrap/dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../../../../../node_modules/bootstrap/dist/css/bootstrap-reboot.min.css">
+
+    <script src="../../../../../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../../../../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="../../../../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+
+    <style>
+
+    .demo {
+        color: #fff;
+    }
+
+
+    </style>
+
+</head>
+<body>
+
+
+<div class="demo container-fluid">
+    <div class="row" style="background-color: red">container-fluid</div>
+</div>
+
+<div class="demo container">
+    <div class="row" style="background-color: green">container</div>
+</div>
+
+
+<script>
+
+/**
+ ** .container-fluid             // 不同屏幕尺寸宽度都为 100%
+ *
+ *      - width: 100%;
+ *
+ *
+ ** .container                  // 不同屏幕尺寸，固定宽度不同
+ *
+ *      - width >= 1200         // 1140px
+ *      - 992 < width < 1200    // 960px
+ *      - 768 < width < 992     // 720px
+ *      - 567 < width < 768     // 540px
+ *      - width < 567           // auto
+ *
+ *
+ ** container-fluid & container 不能嵌套，仅可作为兄弟元素
+ */
+
+
+/**
+ * .row
+ *
+ *
+ * 预设行类名
+ */
+
+
+/**
+ * .col-[size]-[num]
+ *
+ *
+ * @size: 预设的屏幕尺寸的类名缩写
+ * @num: 1 ～ 12 数字
+ *
+ *
+ ** col-xl-[num]     // extra large device      w >= 1200           超大
+ ** col-lg-[num]     // large device            992 < w < 1200      大
+ ** col-md-[num]     // medium device           768 < w < 992       中
+ ** col-sm-[num]     // small device            567 < w < 768       小
+ ** col-[num]        // extra small device      w < 567             超小
+ **
+ ** col              // 等宽列
+ */
+
+
+</script>
+
+
+</body>
+</html>
