@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+    .up_layer {
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        width: 300px;
+        height: 300px;
+        background: green;
+        color: #fff;
+        opacity: .5;
+    }
+
+    </style>
+
+
+</head>
+<body>
+
+
+<!--down layer-->
+
+<a href="http://www.baiu.com/">度娘</a>
+<br/>
+<br/>
+<label>
+    <input type="text">
+    <p>pup alert</p>
+</label>
+
+
+<div class="up_layer"></div>
+
+
+<script>
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/**
+ * 触发场景
+ *
+ *
+ * 1) 有两层重叠的元素
+ *
+ * 2) 上层元素
+ *
+ *      - 有 touch 事件
+ *
+ *      - 点击后元素消失
+ *
+ * 3) 下层元素
+ *
+ *      - 默认带有 click 事件的元素( eg: a, form_ele ... )
+ *
+ *      - 或添加了 click 事件的元素
+ *
+ ** 因移动端事件触发有延迟 300ms
+ ** touch 事件触发的很快
+ ** 若点击到底层带click的事件( click事件抬起才会触发 )，则会误触该事件
+ */
+
+
+//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -//
+
+
+/**
+ * 解决方案
+ *
+ *
+ *  1) 下层元素不要用能点击的标签，并不要给下层元素添加事件        // 相对书写复杂
+ *
+ *      - taobao 中 icon按钮 使用 div，并添加 事件去跳转( 规避 a 标签 )
+ *
+ *  2) 上层元素的事件换成 click                              // 移动端不建议使用
+ *
+ ** 3) 取消顶层元素的默认事件                                 // 推荐使用
+ *
+ **     - e.preventDefault();                             // 会引发后续问题，需处理
+ */
+
+
+//-------------------------------------------------------------------------------------------------------------------//
+
+
+const upLayer = document.querySelector('.up_layer'),
+	nextLayer = document.querySelector('p');
+
+upLayer.addEventListener('touchstart', e => {
+
+	upLayer.style.display = 'none';
+
+	/** 阻止默认事件触发 **/
+	e.preventDefault();
+});
+
+nextLayer.addEventListener('click', () => {
+
+	alert('[clicked]');
+});
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+</script>
+
+</body>
+</html>

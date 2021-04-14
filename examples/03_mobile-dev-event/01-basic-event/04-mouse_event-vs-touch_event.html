@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+    .demo {
+        width: 200px;
+        height: 200px;
+        background-color: green;
+        color: #fff;
+        font-size: 50px;
+    }
+
+    </style>
+</head>
+<body>
+
+
+<div class="demo">
+
+</div>
+
+
+<script>
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/**
+ * mouse_event vs pc_event
+ *
+ *
+ ** 触发点不同
+ *
+ *
+ * pc                           // 必须在元素上才可以触发
+ *
+ *      mousedown       使用相同
+ *
+ **     mousemove:      不需要鼠标按下，仅在指定元素上即可触发
+ *
+ **     mouseup:        仅在指定元素上抬起才可触发
+ *
+ *
+ * mobile                       // 触发后在手机屏幕也可触发
+ *
+ *      touchstart      使用相同
+ *
+ **     touchmove       必须手指按下才可触发，触发后可不在指定元素内也可触发( 需在手机屏幕内 )
+ *
+ **     touchend        不需要在元素上抬起也可触发
+ */
+
+
+//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -//
+
+
+/**
+ * 触发顺序不同
+ *
+ * 1) 出发顺序
+ *
+ *     touchstart -> touchend -> mousedown -> click -> mouseup
+ *
+ *     ( pc_event 在移动端中会有延迟 "300ms左右" )
+ *
+ **    07 年iphone 发布时，手机无适配的概念，为了解决手机上 展示 pc 网页太小
+ **    ios 添加双击放大，再次双击还原 的功能，但若点击的时候为链接，则可能错误跳转
+ **    则为手机事件触发延迟 300ms
+ *
+ *
+ * 2) touchstart vs click
+ *
+ *    - touchstart: 手指触碰到元素即出发
+ *
+ *    - click: 手指触碰到元素并抬起才会出发
+ */
+
+
+//-------------------------------------------------------------------------------------------------------------------//
+
+
+const demo = document.querySelector('.demo');
+
+
+/** mouse event **/
+
+demo.addEventListener('mousedown', () => {
+
+	console.log('mb_dev [mousedown]');
+});
+
+demo.addEventListener('mousemove', () => {
+
+	console.log('mb_dev [mousemove]');
+});
+
+demo.addEventListener('mouseup', () => {
+
+	console.log('mb_dev [mouseup]');
+});
+
+
+//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -//
+
+
+/** touch event **/
+
+demo.addEventListener('touchstart', () => {
+
+	console.log('pc_dev [touchstart]');
+});
+
+demo.addEventListener('touchmove', () => {
+
+	console.log('pc_dev [touchmove]');
+});
+
+demo.addEventListener('touchend', () => {
+
+	console.log('pc_dev [touchend]');
+});
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+</script>
+
+</body>
+</html>

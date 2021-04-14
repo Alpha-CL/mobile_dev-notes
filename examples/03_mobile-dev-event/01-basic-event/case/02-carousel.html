@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+    body {
+        margin: 0;
+    }
+
+    #banner {
+        position: relative;
+        width: 100vw;
+        overflow: hidden;
+    }
+
+    #banner .banner_con {
+        width: 300vw;
+        display: flex;
+        flex-flow: row nowrap;
+    }
+
+    #banner .banner_con a {
+        width: 100vw;
+    }
+
+    #banner .banner_con a img {
+        width: 100%;
+    }
+
+    #banner .banner_points {
+        position: absolute;
+        bottom: 4vw;
+        width: 100vw;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+    }
+
+    #banner .banner_points span {
+        width: 1vw;
+        height: 1vw;
+        border: .6vw solid #fff;
+        border-radius: 50%;
+    }
+
+    #banner .banner_points span:nth-child(2) {
+        margin: 0 2vw;
+    }
+
+    #banner .banner_points .banner_point-active {
+        background-color: #fff;
+    }
+
+    </style>
+
+    <script src="lib/transform.js"></script>
+
+</head>
+<body>
+
+
+<section id="banner">
+    <div class="banner_con">
+        <a href="#"><img src="./imgs/banner_01.jpg" alt="banner_01"></a>
+        <a href="#"><img src="./imgs/banner_02.jpg" alt="banner_02"></a>
+        <a href="#"><img src="./imgs/banner_03.jpg" alt="banner_03"></a>
+    </div>
+    <div class="banner_points">
+        <span class="banner_point-active"></span>
+        <span></span>
+        <span></span>
+    </div>
+</section>
+
+
+<script>
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+const banner = document.querySelector('#banner'),
+	bannerCon = document.querySelector('.banner_con'),
+	points = document.querySelectorAll('.banner_points span'),
+	imgWidth = banner.offsetWidth;
+
+let startPointX = 0,        // 手指按下时的坐标
+	startEleX = 0,          // 按下元素时的坐标
+	disPointX = 0,          // 手指坐标移动的差
+	ci = 0,                 // 当前图片的索引值
+	pi = 0;                 // 上一个图片的索引
+
+Transform(bannerCon);
+
+
+bannerCon.innerHTML += bannerCon.innerHTML;
+bannerCon.style.width = bannerCon.children.length * imgWidth + 'px';
+
+
+banner.addEventListener('touchstart', e => {
+
+	startPointX = e.changedTouches[0].pageX;
+
+	if (ci == 0) {
+
+		ci = bannerCon.children.length / 2;
+
+	} else if (ci == bannerCon.children.length - 1) {
+
+		ci = bannerCon.children.length / 2 - 1;
+	}
+
+	bannerCon.style.transition = '';
+	bannerCon.translateX = -imgWidth * ci;
+
+	startEleX = bannerCon.translateX;
+
+	e.preventDefault();
+});
+
+banner.addEventListener('touchmove', e => {
+
+	disPointX = e.changedTouches[0].pageX - startPointX;
+	bannerCon.translateX = startEleX + disPointX;
+});
+
+banner.addEventListener('touchend', e => {
+
+	let backWidth = imgWidth / 8;
+
+	if (Math.abs(disPointX) > backWidth) {
+
+		if (disPointX < 0) {
+
+			ci++;
+
+		} else {
+
+			ci--;
+		}
+	}
+
+	bannerCon.style.transition = '.3s';
+	bannerCon.translateX = -imgWidth * ci;
+
+	/**
+	 * 当前图片索引: 0,1,2,3,4,5
+	 * 实际圆点索引: 0,1,2
+	 *
+	 *
+	 */
+
+	console.log(ci);
+
+	points[pi].className = '';
+	points[ci % (bannerCon.children.length / 2)].className = 'banner_point-active';
+	pi = ci % (bannerCon.children.length / 2);
+});
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+</script>
+
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+    body {
+        margin: 0;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    #wrap {
+        height: 100vh;
+        overflow: hidden;
+        border: 5px solid #f00;
+        box-sizing: border-box;
+    }
+
+    #list {
+        transition: 0.3s;
+    }
+
+    #list li {
+        font-size: 24px;
+        line-height: 50px;
+    }
+
+    </style>
+
+    <script src="lib/transform.js"></script>
+
+
+</head>
+<body>
+
+
+<div id="wrap">
+    <ul id="list">
+        <li><a href="#">很长很长的列表_1</a></li>
+        <li><a href="#">很长很长的列表_2</a></li>
+        <li><a href="#">很长很长的列表_3</a></li>
+        <li><a href="#">很长很长的列表_4</a></li>
+        <li><a href="#">很长很长的列表_5</a></li>
+        <li><a href="#">很长很长的列表_6</a></li>
+        <li><a href="#">很长很长的列表_7</a></li>
+        <li><a href="#">很长很长的列表_8</a></li>
+        <li><a href="#">很长很长的列表_9</a></li>
+        <li><a href="#">很长很长的列表_10</a></li>
+        <li><a href="#">很长很长的列表_11</a></li>
+        <li><a href="#">很长很长的列表_12</a></li>
+        <li><a href="#">很长很长的列表_13</a></li>
+        <li><a href="#">很长很长的列表_14</a></li>
+        <li><a href="#">很长很长的列表_15</a></li>
+        <li><a href="#">很长很长的列表_16</a></li>
+        <li><a href="#">很长很长的列表_17</a></li>
+        <li><a href="#">很长很长的列表_18</a></li>
+        <li><a href="#">很长很长的列表_19</a></li>
+        <li><a href="#">很长很长的列表_20</a></li>
+        <li><a href="#">很长很长的列表_21</a></li>
+        <li><a href="#">很长很长的列表_22</a></li>
+        <li><a href="#">很长很长的列表_23</a></li>
+        <li><a href="#">很长很长的列表_24</a></li>
+        <li><a href="#">很长很长的列表_25</a></li>
+        <li><a href="#">很长很长的列表_26</a></li>
+        <li><a href="#">很长很长的列表_27</a></li>
+        <li><a href="#">很长很长的列表_28</a></li>
+        <li><a href="#">很长很长的列表_29</a></li>
+        <li><a href="#">很长很长的列表_30</a></li>
+        <li><a href="#">很长很长的列表_31</a></li>
+        <li><a href="#">很长很长的列表_32</a></li>
+        <li><a href="#">很长很长的列表_33</a></li>
+        <li><a href="#">很长很长的列表_34</a></li>
+        <li><a href="#">很长很长的列表_35</a></li>
+        <li><a href="#">很长很长的列表_36</a></li>
+        <li><a href="#">很长很长的列表_37</a></li>
+        <li><a href="#">很长很长的列表_38</a></li>
+        <li><a href="#">很长很长的列表_39</a></li>
+        <li><a href="#">很长很长的列表_40</a></li>
+    </ul>
+</div>
+
+
+<script>
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/**
+ * 滑屏的原理：
+ *
+ *
+ * 首先要知道按下时的坐标，
+ * 再需要获取移动时的坐标，两个坐标之间的差就是元素移动的距离，
+ * 拿元素按下时的距离+手指移动的距离
+ */
+
+
+//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -//
+
+
+/**
+ ** 1) Transform(domElement: dom, ?notPerspective: bool): void;
+ *
+ ** 2) domElement.[prop]                // set/get [prop]
+ *
+ *
+ * @prop: translateX, translateY, translateZ
+ *        scaleX, scaleY, scaleZ
+ *        rotateX, rotateY, rotateZ
+ *        skewX, skewY
+ *        originX, originY, originZ
+ *
+ * @notPerspective: 是否非透视
+ *
+ *
+ * Github: https://github.com/AlloyTeam/AlloyTouch/tree/master/transformjs
+ */
+
+
+//-------------------------------------------------------------------------------------------------------------------//
+
+
+const wrap = document.querySelector('#wrap'),
+	list = document.querySelector('#list');
+
+let startPointY = 0,        // 按下时手指的坐标
+	movePointY = 0,         // 手指移动时的坐标
+	startTop = 0;           // 按下时元素的距离
+
+Transform(list);
+
+wrap.addEventListener('touchstart', e => {
+
+	/** 获取第一次手指按下时的 Y坐标 **/
+	startPointY = e.changedTouches[0].pageY;
+
+	startTop = list.translateY;
+});
+
+wrap.addEventListener('touchmove', e => {
+
+	/** 坐标移动距离 = 当前按下时的 pageY - 按下时的 pageY **/
+	movePointY = e.changedTouches[0].pageY - startPointY;
+
+	/** 元素移动距离 = 按下时元素的点的Y + 移动后元素的点的Y **/
+	list.translateY = startTop + movePointY;
+
+	/** 阻止默认事件 **/
+	e.preventDefault();
+});
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+
+    .demo {
+        width: 200px;
+        height: 200px;
+        background-color: green;
+        font-size: 100px;
+        color: #fff;
+    }
+
+
+    </style>
+
+</head>
+<body>
+
+
+<div class="demo"></div>
+
+
+<script>
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/**
+ * event
+ *
+ *
+ * touches: []              // 位于当前屏幕上所有手指列表( 必须至少有1个手指在添加触发事件的元素上 )
+ *
+ **     - 只要有一根手指在指定元素上触发该事件
+ **     - 则后续再添加几根手指都是可以的( 无论是否在指定元素上，只要在屏幕上即可 )
+ *
+ *
+ * targetTouches: []        // 位于当前 DOM 元素上的手指列表
+ *
+ **     - 仅在指定元素上触发的手指 TouchObjs
+ *
+ *
+ * changedTouches: []       // 触发当前事件的手指列表
+ *
+ **     - 第一根触发指定元素的手指对象 TouchObj
+ */
+
+
+//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -//
+
+
+/**
+ ** TouchList: [                  // 多根手指触发对象的集合( 至少有一个 )
+ *
+ *      0: Touch {              // 每根手指触发时产生的对象
+ *
+ *          clientX,            // 相对于可视区( 不包括滚动条 )
+ *          clientY,
+ *
+ *          force,              // 手指按压压力
+ *
+ *          identifier,         // uid
+ *
+ *          pageX,              // 相对于 html document( 包括滚动条 )
+ *          pageY,              //
+ *
+ *          radiusX,            // 手指按下时触摸的面积
+ *          radiusY,            //
+ *          rotationAngle,      //
+ *
+ *          screenX,            // 相对于屏幕
+ *          screenY,            //
+ *
+ *          target: dom         // 当前触发事件的对象
+ *      }
+ * ]
+ */
+
+
+//-------------------------------------------------------------------------------------------------------------------//
+
+
+const demo = document.querySelector('.demo');
+
+demo.addEventListener('touchstart', e => {
+
+	/*
+	  console.log(e);
+	  altKey: false
+	  bubbles: true
+	  cancelBubble: false
+	  cancelable: true
+	* changedTouches: TouchList {0: Touch, length: 1}
+	  composed: true
+	  ctrlKey: false
+	  currentTarget: null
+	  defaultPrevented: false
+	  detail: 0
+	  eventPhase: 0
+	  isTrusted: true
+	  metaKey: false
+	  path: (5) [div.demo, body, html.touch, document, Window]
+	  returnValue: true
+	  shiftKey: false
+	  sourceCapabilities: InputDeviceCapabilities {firesTouchEvents: true}
+	  srcElement: div.demo
+	  target: div.demo
+	* targetTouches: TouchList {0: Touch, length: 1}
+	  timeStamp: 1076.5049999999974
+	* touches: TouchList {0: Touch, length: 1}
+	  type: "touchstart"
+	  view: Window {window: Window, self: Window, document: document, name: "", location: Location, …}
+	  which: 0
+	  __proto__: TouchEvent
+	*/
+
+	/** 目前有几根手指触摸屏幕 **/
+	demo.innerHTML = e.touches.length;
+
+});
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+</script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+    .demo {
+        width: 200px;
+        height: 200px;
+        background-color: green;
+        color: #fff;
+        font-size: 50px;
+    }
+
+    </style>
+</head>
+<body>
+
+
+<div class="demo">
+
+</div>
+
+
+<script>
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/**
+ * touchstart
+ *
+ *
+ ** ios10+
+ **     - 不支持 const
+ **     - 无法通过 document.getElementById(''); 获取元素
+ */
+
+const box = document.querySelector('.demo');
+
+
+/** on 添加的事件会覆盖，无法共存 **/
+box.addEventListener('touchstart', () => {
+
+	console.log('[touch start]');
+});
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+</script>
+
+</body>
+</html>
