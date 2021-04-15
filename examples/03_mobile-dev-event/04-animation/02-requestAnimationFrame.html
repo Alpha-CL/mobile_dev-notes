@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style></style>
+
+
+</head>
+<body>
+
+<div
+        class="progress_bar"
+        style="background: lightblue; width: 0;height: 20px;"
+>0%</div>
+<br>
+<button>let's go</button>
+
+
+<script>
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/**
+ * requestAnimationFrame(callback): id;
+ *
+ *
+ * cancelAnimationFrame(id);    // 清除指定动画
+ *
+ *
+ * 支持情况
+ *
+ *      firefox         11~22 需加前缀 22+ 不用加前缀
+ *      chrome          22~23 需加前缀 23+ 不用加前缀
+ *      ie              9+ 才支持 不用加前缀
+ *      ios             6 需加前缀 6+ 不用加前缀
+ *      android         4.4 需加前缀 4+ 不用加前缀
+ *
+ *
+ ** problem: 调用一次走一次
+ */
+
+
+const progress = document.querySelector('.progress_bar'),
+	btn = document.querySelector('button');
+
+let timer = null;
+
+btn.onclick = () => {
+
+	progress.style.width = '0';
+
+	cancelAnimationFrame(timer);
+
+	timer = requestAnimationFrame(function fn() {
+
+		move();
+
+		timer = requestAnimationFrame(fn);
+
+		if (progress.offsetWidth >= 500) {
+
+			cancelAnimationFrame(timer);
+		}
+	});
+};
+
+function move() {
+	progress.style.width = `${progress.offsetWidth + 5}px`;
+	progress.innerHTML = `${progress.offsetWidth / 5}%`
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+</script>
+
+
+</body>
+</html>

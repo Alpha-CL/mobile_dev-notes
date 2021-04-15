@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scal=1,maximun-scal=1,user-scalable=no">
+
+    <style>
+    body {
+        margin: 0;
+    }
+
+    #wrap {
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .banner {
+        height: 20vh;
+        box-sizing: border-box;
+        border: 1px solid #00f;
+        overflow: hidden;
+    }
+
+    .banner ul {
+        width: 400vw;
+        height: 100%;
+    }
+
+    .banner li {
+        height: 100%;
+        float: left;
+        box-sizing: border-box;
+        border-right: 1px solid #fff;
+    }
+
+    .banner ul li a {
+        display: block;
+        width: 100vw;
+        height: 100%;
+
+        text-align: center;
+        font-size: 50px;
+        color: #fff;
+        background: #232323;
+    }
+
+    .list {
+        height: 80vh;
+        overflow: hidden;
+        background: #ccc;
+        border: 1px solid #f00;
+        box-sizing: border-box;
+    }
+
+    .list li {
+        font-size: 30px;
+        line-height: 40px;
+    }
+    </style>
+
+    <script src="../util/css.js"></script>
+
+</head>
+<body>
+
+
+<div id="wrap">
+    <div class="banner">
+        <ul>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+        </ul>
+    </div>
+    <div class="list">
+        <ul>
+        </ul>
+    </div>
+</div>
+
+
+<script>
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/**
+ * swiper({})
+ *
+ *
+ *
+ */
+
+
+const ul = document.querySelector('.list ul');
+
+for (let i = 0; i < 30; i++) {
+
+	let li = document.createElement('li');
+	li.innerHTML = `<a href=#>这是一个很长很长的列表${i}</a>`;
+	ul.appendChild(li);
+}
+
+const swiper = ({wrap, dir = 'y', start, end}) => {
+
+	const scroll = wrap.children[0];
+
+	let startPoint = {},
+		startEle = {},
+		distance = {},
+		targetEle = {},
+		isDir = {
+			x: false,
+			y: false,
+		},
+		isFirstMove = true,
+		currPoint = {},
+		lastPoint = {};
+
+	wrap.addEventListener('touchstart', e => {
+
+		start && start.call(wrap, e);
+
+		startPoint = {
+			x: e.changedTouches[0].pageX,
+			y: e.changedTouches[0].pageY,
+		};
+
+		lastPoint = {...startPoint};
+
+		startEle = {
+			x: css(scroll, 'translateX'),
+			y: css(scroll, 'translateY'),
+		};
+	});
+
+	wrap.addEventListener('touchmove', e => {
+
+		currPoint = {
+			x: e.changedTouches[0].pageX,
+			y: e.changedTouches[0].pageY,
+		}
+
+		if (lastPoint.x === currPoint.x && lastPoint.y === currPoint.y) {
+
+			return;
+		}
+
+		distance = {
+			x: e.changedTouches[0].pageX - startPoint.x,
+			y: e.changedTouches[0].pageY - startPoint.y,
+		};
+
+		targetEle = {
+			x: startEle.x + distance.x,
+			y: startEle.y + distance.y,
+		};
+
+		if (isFirstMove) {
+
+			if (Math.abs(distance.x) > Math.abs(distance.y)) {
+
+				isDir.x = true;
+				isDir.y = isFirstMove = false;
+
+			} else {
+
+				isDir.y = true;
+				isDir.x = isFirstMove = false;
+			}
+		}
+
+		if (isDir[dir]) {
+
+			css(scroll, {[`translate${dir.toUpperCase()}`]: targetEle[dir]});
+			e.preventDefault();
+		}
+
+		lastPoint = {...currPoint};
+	});
+
+	wrap.addEventListener('touchend', e => {
+
+		end && end.call(wrap, e);
+
+		isFirstMove = true;
+
+		isDir = {
+			x: false,
+			y: false,
+		};
+	});
+};
+
+const list = document.querySelector('.list'),
+	banner = document.querySelector('.banner');
+
+swiper({
+	wrap: list,
+	dir: 'y',
+	start() {
+
+		console.log('[手指按下]');
+	},
+	end() {
+
+		console.log('[手指抬起]');
+	}
+});
+
+swiper({
+	wrap: banner,
+	dir: 'x'
+})
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+</script>
+
+
+</body>
+</html>

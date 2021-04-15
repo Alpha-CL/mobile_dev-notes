@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+    .demo {
+        width: 50px;
+        height: 50px;
+        background-color: green;
+    }
+
+    </style>
+
+    <script src="../util/tween-14.js"></script>
+
+
+</head>
+<body>
+
+
+<div class="demo"></div>
+<br>
+<button>let's go</button>
+
+
+<script>
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/**
+ * tween()
+ *
+ *
+ * t    time        当前时间
+ * b    begin       初始值
+ * c    count       总的运动值( 结束值与初始值之间的差 )
+ * d    duration    持续时间
+ *
+ * return:	元素应该在的位置;
+ */
+
+const demo = document.querySelector('.demo'),
+	btn = document.querySelector('button');
+
+
+let t = 0,
+	b = 0,
+	c = 200,
+	d = 100;
+
+btn.onclick = () => {
+
+	setInterval(() => {
+
+		t++;
+
+		let res = Tween['linear'](t, b, c, d);
+
+		demo.style.transform = `translateX(${res}px)`;
+	});
+
+	// 仅做演示( 不使用定时器 )
+    //
+	// setInterval(() => {
+    //
+	// 	t++;
+    //
+	// 	let res = Tween['linear'](t, b, c, d);
+    //
+	// 	demo.style.transform = `translateX(${res}px)`;
+	//
+	// });
+};
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+</script>
+
+
+</body>
+</html>

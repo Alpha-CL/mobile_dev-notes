@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+    .demo {
+        width: 50px;
+        height: 50px;
+        background-color: green;
+    }
+
+    </style>
+
+    <script src="../util/tweenMove.js"></script>
+
+</head>
+<body>
+
+
+<div class="demo"></div>
+<br>
+<button class="btn">let's go</button>
+
+
+<script>
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/**
+ * tweenMove({
+ * 		el:             // 要运动的元素,
+ * 		type:           // 动画的类型,
+ * 		to:{	        // 运动的目的地
+ * 		    left:200,
+ * 		},
+ * 		time:           // 运动的时间(ms),
+ * 		callBack(){},   //动画结束后的回调函数
+ * 		callIn(){}      //动画执行中的回调函数
+ * });
+ */
+
+const demo = document.querySelector('.demo'),
+    btn = document.querySelector('.btn');
+
+btn.onclick = () => {
+
+	tweenMove({
+        el: demo,
+        type: 'easeOut',
+        to: {
+        	translateX: 100,
+            translateY: 200,
+        },
+        time: 1000,
+		callBack() {
+			console.log('[animation start]');
+		},
+		callIn() {
+			console.log('[animation end]');
+		}
+    });
+};
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+</script>
+
+
+
+
+
+</body>
+</html>

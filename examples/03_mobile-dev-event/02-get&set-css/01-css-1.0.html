@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+
+    .demo {
+        width: 200px;
+        height: 200px;
+        background-color: green;
+        transform: rotate(60deg) scale(.5) translateY(100px);
+    }
+
+
+    </style>
+
+
+</head>
+<body>
+
+
+<div class="demo"></div>
+
+
+
+<script>
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/**
+ * css(el: dom, attr: str, val: str): num | str;
+ *
+ *
+ ** 无法设置和获取 transform 属性
+ */
+
+const css = (el, attr, val) => {
+
+	if (!val) {
+
+		if (attr === 'transform') {
+
+			val = getComputedStyle(el)[attr]
+
+            return val;
+		}
+
+		val = parseFloat(getComputedStyle(el)[attr]);
+
+		return val;
+	}
+
+	if (attr === 'opacity') {
+
+		el.style[attr] = val;
+
+	} else {
+
+		el.style[attr] = val + 'px';
+	}
+};
+
+
+/** 该方法仅可处理 css2 中的部分样式 **/
+const demo = document.querySelector('.demo');
+console.log(css(demo, 'opacity', .5));
+
+/**
+ * 无法便捷的 获取和设置 css3 中的 transform 属性
+ * 虽然可以获取行内样式中的 transform 但这并不是最终的解决方案
+ **/
+console.log(css(demo, 'transform'));
+// matrix(0.25, 0.433013, -0.433013, 0.25, -43.3013, 25)
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+</script>
+
+
+</body>
+</html>
